@@ -1,0 +1,490 @@
+@import 'fonts';
+@import 'colors';
+@import 'mixin';
+@import 'letters';
+@import 'buttons';
+@import 'jumbotron';
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $dark-color
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+section {
+  padding: 120px 0;
+}
+
+.content-center {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+/*header*/
+
+nav {
+  max-width: 100%;
+}
+
+.gris {
+  background: rgba(0, 0, 0, 0.199);
+}
+
+/*header scroll*/
+
+.top-nav-collapse {
+  background: rgba(0, 0, 0, 0.774) !important;
+  z-index: 1;
+
+  img {
+    display: none;
+  }
+}
+
+/*home*/
+
+.fondo {
+  background-image: url(../images/viñedos.jpg);
+  height: 100vh;
+  max-width: 100%;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: $dark-color;
+    position: absolute;
+    opacity: 0.6;
+  }
+}
+
+h1,
+.subtitle {
+  position: relative;
+  color: $white-color;
+}
+
+/*galeria*/
+
+.portfolio-container {
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0;
+  border-radius: 2px;
+
+  img {
+    @include transition()
+  }
+
+  &:hover img {
+    @include scale()
+  }
+}
+
+.portfolio-details {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 9000;
+
+  h2 {
+    margin-bottom: 0px;
+  }
+
+  a {
+
+    h2,
+    p {
+      color: $white-color;
+    }
+  }
+}
+
+.btn-lg {
+  @extend %button1;
+
+  &:hover {
+    transition: background-color 1s ease-out;
+    background-color: $white-color;
+    color: $dark-color;
+  }
+}
+
+
+/*seccion bodega*/
+
+.pricing-container {
+  margin: 15px 0;
+}
+
+.plans {
+  padding: 40px 60px;
+  border-radius: 2px;
+  min-width: 100px;
+}
+
+.plan-light {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.plan-dark {
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+
+  h3::after {
+    background: white;
+  }
+}
+
+.plans {
+  h2 {
+    font-size: 70px;
+    font-weight: 600;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  ul {
+    list-style-type: square;
+  }
+}
+
+.btn-primary {
+  @extend %button1;
+
+  &:hover {
+    background-color: $white-color;
+    color: $dark-color;
+  }
+}
+
+.btn-secondary {
+  @extend %button2;
+  &:hover {
+    background-color: $dark-color;
+  }
+}
+
+/*Miembros*/
+
+.single-album {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 5px 5px 5px $white-color;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.album-img {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+  }
+}
+
+.single-album:hover .album-img img {
+  transform: scale(1.5, 1.5);
+}
+
+.album-content {
+  height: 90px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  transition: all .4s;
+  background: #1411148a;
+}
+
+.single-album:hover .album-content {
+  height: 150px;
+  background: $dark-color;
+}
+
+.album-info {
+  transition: all .5s;
+  padding: 5px 20px 5px 20px;
+}
+
+/*testimonios*/
+
+.carousel {
+  margin: 50px auto;
+  padding: 0 70px;
+}
+
+.carousel-item {
+  color: rgb(2, 1, 1);
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 290px;
+}
+
+.carousel {
+  .item .img-box {
+    width: 135px;
+    height: 135px;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid $white-color;
+    border-radius: 50%;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+  }
+
+  .testimonial {
+    padding: 30px 0 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .overview {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+
+    b {
+      text-transform: uppercase;
+      color: #000000;
+    }
+  }
+
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    top: 50%;
+  }
+}
+
+.carousel-control i {
+  font-size: 68px;
+  line-height: 42px;
+  position: absolute;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 3px 3px $white-color, 0 0 0 $dark-color;
+}
+
+.carousel .carousel-indicators {
+  bottom: -40px;
+}
+
+.rating i {
+  color: $gold-color;
+  font-size: 26px;
+}
+
+.carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  margin: 1px 3px;
+  border-radius: 50%;
+
+  &.active {
+    width: 10px;
+    height: 10px;
+    margin: 1px 3px;
+    border-radius: 50%;
+  }
+}
+
+/*contacto*/
+
+.contacto {
+  background-image: url(../images/copas.jpg);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.contacto li {
+  list-style: none;
+}
+
+.contact-form {
+  margin-left: auto;
+  margin-right: auto;
+  background: $white-color;
+  opacity: 1;
+  color: $dark-color;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(241, 234, 234, 0.3);
+  width: 50%;
+  padding: 30px;
+
+  .form-row {
+    label {
+      display: block;
+      font-family: $font;
+    }
+
+    .col {
+      margin: 0;
+      padding: 10px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      background: none;
+      outline: 0;
+      color: $white-color;
+      border-bottom: 3px solid $dark-color;
+    }
+  }
+
+  button {
+    @extend %button3;
+    width: 50%;
+
+    &:hover {
+      background: $dark-color;
+      color: $white-color;
+      transition: background-color 1s ease-out;
+      outline: 0;
+    }
+  }
+}
+
+/*Footer*/
+
+footer {
+  padding: 20px;
+  background-color: $white-color;
+  color: $dark-color;
+
+  li {
+    list-style: none;
+  }
+
+  p {
+    color: $white-color;
+  }
+}
+
+/*medias queries*/
+
+/*Mobile Query*/
+@media (max-width: 640px) {
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .navbar-collapse .show{
+    background-color: $dark-color;
+  }
+
+  .top-nav-collapse {
+    background-color: $dark-color;
+  }
+
+  .fondo {
+    h1 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 10px;
+      text-align: left;
+    }
+  }
+
+  .single-album {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .jumbotron h3 {
+    font-size: 15px;
+  }
+
+  .jumbotron h4 {
+    font-size: 12px;
+  }
+
+  .contact-form {
+    width: 90%;
+  }
+
+  .contacto .col-md-6 p {
+    font-size: 10px;
+  }
+
+
+}
+
+/*Tablet Query*/
+@media only screen and (min-width: 640px) and (max-width:768px) {
+  .jumbotron h3 {
+    font-size: 20px;
+  }
+
+  .jumbotron h4 {
+    font-size: 15px;
+  }
+
+  .icons {
+    font-size: 20px;
+  }
+
+  .plan-dark {
+    height: 498px;
+  }
+
+  .single-album:hover .album-content {
+    height: 200px;
+  }
+
+  .img-process img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+}

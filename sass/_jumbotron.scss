@@ -1,0 +1,33 @@
+.jumbotron {
+    background-color: cornsilk;
+}
+
+.services {
+    margin: 2px 20px auto;
+    text-align: center;
+}
+
+h3 {
+    letter-spacing: 1px;
+}
+
+h3::after {
+    content: "";
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 150px;
+    height: 3px;
+    margin: 10px auto;
+}
+
+.icons{
+    font-size: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.img-process img {
+    height: 100px;
+    width: 100px;
+}
+
